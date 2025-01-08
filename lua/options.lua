@@ -56,3 +56,13 @@ vim.opt.expandtab = true
 
 -- Enable termguicolors
 vim.opt.termguicolors = true
+
+-- Set column width and auto-wrap settings
+vim.opt.textwidth = 90
+vim.opt.colorcolumn = "90"
+
+-- Limit completion results
+vim.opt.pumheight = 10
+
+-- Always keep statusline at bottom
+vim.opt.laststatus = 3
