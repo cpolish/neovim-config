@@ -8,6 +8,9 @@ vim.g.have_nerd_font = true
 -- General Neovim options
 require("options")
 
+-- Handle providers for languages in Neovim
+require("providers")
+
 -- Basic keymaps
 require("keymaps")
 
