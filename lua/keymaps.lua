@@ -41,6 +41,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
--- Buffer-related keymaps
-vim.keymap.set('n', "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
