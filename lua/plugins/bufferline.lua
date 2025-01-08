@@ -10,6 +10,12 @@ return {
     },
     opts = {
       options = {
+        close_command = function(n)
+          require("mini.bufremove").delete(n)
+        end,
+        right_mouse_command = function(n)
+          require("mini.bufremove").delete(n)
+        end,
         diagnostics = "nvim_lsp",
         offsets = {
           {
@@ -33,17 +39,5 @@ return {
       { "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
       { "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
     },
-    -- config = function(_, opts)
-    --   require("bufferline").setup(opts)
-    --
-    --   -- Fix bufferline when restoring a session
-    --   vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
-    --     callback = function()
-    --       vim.schedule(function()
-    --         pcall(nvim_bufferline)
-    --       end)
-    --     end,
-    --   })
-    -- end
   }
 }

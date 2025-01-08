@@ -34,6 +34,12 @@ return {
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+
+      -- Buffer deletion fixes
+      local bufremove = require("mini.bufremove")
+      bufremove.setup()
+
+      vim.keymap.set('n', "<leader>bd", bufremove.delete, { desc = "Delete Buffer" })
     end,
   },
 }
