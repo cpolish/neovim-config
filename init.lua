@@ -14,5 +14,8 @@ require("providers")
 -- Basic keymaps
 require("keymaps")
 
+-- Autocommands
+require("autocmds")
+
 -- Bootstrap/install `lazy.nvim` package manager, and onfigure and install plugins
 require("lazy-setup")
