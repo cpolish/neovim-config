@@ -14,6 +14,13 @@ return {
     opts = {
       kind = "floating",
       progress_spinner = true,
+      commit_editor = {
+        kind = "floating",
+        show_staged_diff = false,
+      },
+      commit_select_view = {
+        kind = "floating",
+      },
     },
     keys = {
        { "<leader>gg", "<cmd>Neogit<CR>", desc = "Open Neogit" },
