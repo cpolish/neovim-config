@@ -29,3 +29,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
   group = auto_dir_group,
   callback = dir_caching.load_last_dir_if_no_args,
 })
+
+-- Check if we need to reload buffers in Neovim if a file has changed
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave"}, {
+  desc = "Reload buffers in Neovim if a file has changed",
+  group = vim.api.nvim_create_augroup("reload-buf-check", { clear = true }),
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd([[ checktime ]])
+    end
+  end,
+})
