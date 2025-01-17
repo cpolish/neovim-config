@@ -18,11 +18,17 @@ require("lazy").setup({
     rtp = {
       disabled_plugins = {
         "gzip",
+        "tar",
         "tarPlugin",
         "tohtml",
         "tutor",
+        "zip",
         "zipPlugin",
+        "netrw",
         "netrwPlugin",
+        "netrwFileHandlers",
+        "getscript",
+        "getscriptPlugin",
       },
     },
   },
