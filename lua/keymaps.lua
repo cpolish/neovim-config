@@ -30,3 +30,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Tab closing
 vim.keymap.set('n', "<leader>td", "<cmd>tabclose<CR>", { desc = "Delete tab" })
+
+-- Set macro record key to '\' to avoid accidentally pressing it
+vim.keymap.set('n', '\\', 'q')
+vim.keymap.set('n', 'q', "<Nop>")
