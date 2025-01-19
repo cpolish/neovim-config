@@ -1,3 +1,5 @@
+local FOLD_ICONS = { '', '' }
+
 return {
   {
     "NeogitOrg/neogit",
@@ -20,6 +22,10 @@ return {
       },
       commit_select_view = {
         kind = "floating",
+      },
+      signs = {
+        item = FOLD_ICONS,
+        section = FOLD_ICONS,
       },
     },
     keys = {
