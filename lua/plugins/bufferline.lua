@@ -1,3 +1,5 @@
+local MAIN_WIN_NUM = 1
+
 return {
   {
     "akinsho/bufferline.nvim",
@@ -12,6 +14,9 @@ return {
       options = {
         close_command = function(n)
           require("mini.bufremove").delete(n)
+        end,
+        left_mouse_command = function(n)
+          vim.api.nvim_win_set_buf(vim.fn.win_getid(MAIN_WIN_NUM), n)
         end,
         right_mouse_command = function(n)
           require("mini.bufremove").delete(n)
