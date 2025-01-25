@@ -22,3 +22,15 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave"}, {
     end
   end,
 })
+
+-- Create and allow Lazy to recognise the "LazyFile" event
+local lazy_file_event = require("utils.events.lazy-file")
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyStart",
+  desc = "Create \"LazyFile\" event, and attach to Lazy",
+  group = vim.api.nvim_create_augroup("setup-lazyfile", { clear = true }),
+  callback = function()
+    lazy_file_event.setup()
+  end,
+})
