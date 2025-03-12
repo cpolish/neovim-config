@@ -75,4 +75,4 @@ vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Session-related options
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winpos"
