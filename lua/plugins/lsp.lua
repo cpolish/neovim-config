@@ -74,11 +74,11 @@ return {
 
           local fzf_lua = require("fzf-lua")
 
-          -- Wrapper which creates a function to pass the `jump_to_single_result` option in a
+          -- Wrapper which creates a function to pass the `jump1` option in a
           -- table to the specified function
-          local lsp_jump_to_single_func_wrapper = function(lsp_func_name)
+          local lsp_jump1_func_wrapper = function(lsp_func_name)
             return function()
-              fzf_lua[lsp_func_name]({ jump_to_single_result = true })
+              fzf_lua[lsp_func_name]({ jump1 = true })
             end
           end
 
@@ -86,11 +86,11 @@ return {
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
           -- map('gd', fzf_lua.lsp_definitions, '[G]oto [D]efinition')
-          map('gd', lsp_jump_to_single_func_wrapper("lsp_definitions"), '[G]oto [D]efinition')
+          map('gd', lsp_jump1_func_wrapper("lsp_definitions"), '[G]oto [D]efinition')
 
           -- Find references for the word under your cursor.
           -- map('gr', fzf_lua.lsp_references, '[G]oto [R]eferences')
-          map('gr', lsp_jump_to_single_func_wrapper("lsp_references"), '[G]oto [R]eferences')
+          map('gr', lsp_jump1_func_wrapper("lsp_references"), '[G]oto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
@@ -99,7 +99,7 @@ return {
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<leader>D', lsp_jump_to_single_func_wrapper("lsp_typedefs"), 'Type [D]efinition')
+          map('<leader>D', lsp_jump1_func_wrapper("lsp_typedefs"), 'Type [D]efinition')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
