@@ -76,3 +76,6 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Session-related options
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winpos"
+
+-- Global variable related stuff
+vim.g.diagnostic_signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
