@@ -144,12 +144,12 @@ return {
       ---
       ---@return string diagnostic_string The diagnostic string for the statusline.
       local section_diagnostic_by_name = function(diagnostic_counts, diagnostic_name)
-        if statusline.is_truncated(75) or lsp_diagnostics_disabled() then
+        if statusline.is_truncated(75) then
           return ""
         end
 
         local count = diagnostic_counts[vim.diagnostic.severity[diagnostic_name]] or 0
-        if count == 0 then
+        if (count == 0) or lsp_diagnostics_disabled() then
           return ""
         end
 
