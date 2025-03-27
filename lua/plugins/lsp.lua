@@ -232,9 +232,14 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
-      require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
+      local mason_tool_installer = require("mason-tool-installer")
+      -- require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
+      mason_tool_installer.setup({ ensure_installed = ensure_installed })
+      mason_tool_installer.check_install()
 
       require('mason-lspconfig').setup({
+        ensure_installed = {},
+        automatic_installation = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
