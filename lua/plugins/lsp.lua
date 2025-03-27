@@ -204,6 +204,19 @@ return {
         eslint = {},
         html = {},
 
+        jdtls = {
+          settings = {
+            java = {
+              compile = {
+                nullAnalysis = {
+                  mode = "automatic",
+                },
+              },
+            },
+          }
+        },
+        gradle_ls = {},
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
