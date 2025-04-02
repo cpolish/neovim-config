@@ -239,9 +239,7 @@ return {
         'stylua', -- Used to format Lua code
       })
       local mason_tool_installer = require("mason-tool-installer")
-      -- require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
       mason_tool_installer.setup({ ensure_installed = ensure_installed })
-      mason_tool_installer.check_install()
 
       -- LSP servers and clients are able to communicate to each other what features they
       -- support.
