@@ -2,8 +2,9 @@ return {
   {
     "danymat/neogen",
     opts = {
-      snippet_engine = "luasnip",
+      snippet_engine = "nvim",
     },
+    cmd = "Neogen",
     keys = {
       {
         "<leader>cdf",
