@@ -31,23 +31,23 @@ return {
     keys = {
        { "<leader>gg", "<cmd>Neogit<CR>", desc = "Open Neogit" },
     },
-    config = function(_, opts)
-      require("neogit").setup(opts)
-
-      -- Setup autocmd so that Neo-tree refreshes after an update
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "NeogitStatusRefreshed",
-        group = vim.api.nvim_create_augroup("refresh-neotree-on-neogit-update",
-                                            { clear = true }),
-        callback = function()
-          if not package.loaded["neo-tree.events"] then
-            return
-          end
-
-          local nt_events = require("neo-tree.events")
-          nt_events.fire_event(nt_events.GIT_EVENT)
-        end,
-      })
-    end
+    -- config = function(_, opts)
+    --   require("neogit").setup(opts)
+    --
+    --   -- Setup autocmd so that Neo-tree refreshes after an update
+    --   vim.api.nvim_create_autocmd("User", {
+    --     pattern = "NeogitStatusRefreshed",
+    --     group = vim.api.nvim_create_augroup("refresh-neotree-on-neogit-update",
+    --                                         { clear = true }),
+    --     callback = function()
+    --       if not package.loaded["neo-tree.events"] then
+    --         return
+    --       end
+    --
+    --       local nt_events = require("neo-tree.events")
+    --       nt_events.fire_event(nt_events.GIT_EVENT)
+    --     end,
+    --   })
+    -- end
   },
 }
