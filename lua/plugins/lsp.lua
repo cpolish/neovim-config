@@ -72,54 +72,13 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          local fzf_lua = require("fzf-lua")
-
-          -- Wrapper which creates a function to pass the `jump1` option in a
-          -- table to the specified function
-          local lsp_jump1_func_wrapper = function(lsp_func_name)
-            return function()
-              fzf_lua[lsp_func_name]({ jump1 = true })
-            end
-          end
-
-          -- Jump to the definition of the word under your cursor.
-          --  This is where a variable was first declared, or where a function is defined, etc.
-          --  To jump back, press <C-t>.
-          -- map('gd', fzf_lua.lsp_definitions, '[G]oto [D]efinition')
-          map('gd', lsp_jump1_func_wrapper("lsp_definitions"), '[G]oto [D]efinition')
-
-          -- Find references for the word under your cursor.
-          -- map('gr', fzf_lua.lsp_references, '[G]oto [R]eferences')
-          map('gr', lsp_jump1_func_wrapper("lsp_references"), '[G]oto [R]eferences')
-
-          -- Jump to the implementation of the word under your cursor.
-          --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gI', fzf_lua.lsp_implementations, '[G]oto [I]mplementation')
-
-          -- Jump to the type of the word under your cursor.
-          --  Useful when you're not sure what type a variable is and you want to see
-          --  the definition of its *type*, not where it was *defined*.
-          map('<leader>D', lsp_jump1_func_wrapper("lsp_typedefs"), 'Type [D]efinition')
-
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('<leader>sd', fzf_lua.lsp_document_symbols, '[D]ocument [S]ymbols')
-
-          -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
-          map('<leader>sw', fzf_lua.lsp_workspace_symbols, '[W]orkspace [S]ymbols')
-
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
           map('<leader>cr', vim.lsp.buf.rename, '[C]ode: [R]ename Symbol')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', fzf_lua.lsp_code_actions, '[C]ode [A]ction', { 'n', 'x' })
-
-          -- WARN: This is not Goto Definition, this is Goto Declaration.
-          --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
