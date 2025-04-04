@@ -226,13 +226,38 @@ return {
         return table.concat(filtered_output_data, " | ")
       end
 
+      ---Construct a statusline string to represent information about any macro which may
+      ---be currently recorded.
+      ---
+      ---If not macro is currently being recorded, this function returns an empty string.
+      ---
+      ---@return string macro_record_info A statusline string to represent info about any
+      ---macro which may be currently being recorded, or an empty string if no macro is
+      ---being recorded.
+      local section_macro_recording = function()
+        local macro_record_register = vim.fn.reg_recording()
+
+        if macro_record_register == "" then
+          return ""
+        end
+
+        return "recording @" .. macro_record_register
+      end
+
       ---Computes the statusline, and returns the formatted Vim statusline string.
       ---
       ---@return string statusline_string The formatted Vim statusline string, after being
       ---computed.
       local compute_statusline = function()
         local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
-        local git           = statusline.section_git({ trunc_width = 40 })
+
+        local git = statusline.section_git({ trunc_width = 40 })
+        local macro_recording = section_macro_recording()
+
+        local git_macro_recording_sep = ""
+        if (git ~= "") and (macro_recording ~= "") then
+          git_macro_recording_sep = '|'
+        end
 
         local diagnostic_counts = vim.diagnostic.count(vim.api.nvim_get_current_buf())
 
@@ -252,7 +277,10 @@ return {
 
         return statusline.combine_groups({
           { hl = mode_hl,                  strings = { mode } },
-          { hl = "MiniStatuslineDevinfo",  strings = { git } },
+          {
+            hl = "MiniStatuslineDevinfo",
+            strings = { git, git_macro_recording_sep, macro_recording }
+          },
           error_diagnostics,
           warn_diagnostics,
           info_diagnostics,
