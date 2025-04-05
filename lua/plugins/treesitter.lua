@@ -9,6 +9,7 @@ return {
       ensure_installed = {
         'bash',
         'c',
+        'css',
         'diff',
         'doxygen',
         'html',
@@ -22,6 +23,7 @@ return {
         'query',
         'regex',
         'rust',
+        'scss',
         'typescript', 'tsx',
         'vim',
         'vimdoc',
