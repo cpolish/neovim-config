@@ -14,6 +14,9 @@ require("providers")
 -- Basic keymaps
 require("keymaps")
 
+-- Enable custom filetypes
+require("filetypes")
+
 -- Autocommands
 require("autocmds")
 
