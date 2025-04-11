@@ -4,7 +4,10 @@ return {
     ---@type snacks.Config
     opts = {
       terminal = {
-        win = { height = 18 },
+        win = {
+          height = 18,
+          wo = { winbar = vim.o.shell },
+        },
       },
       styles = {
         ---@diagnostic disable-next-line: missing-fields
