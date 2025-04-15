@@ -10,7 +10,7 @@ local host_progs = {
   },
 }
 
-local os_name = vim.loop.os_uname().sysname
+local os_name = vim.uv.os_uname().sysname
 local os_specific_config = host_progs[os_name]
 
 if os_specific_config ~= nil then
