@@ -60,6 +60,7 @@ vim.opt.termguicolors = true
 -- Set column width and auto-wrap settings
 vim.opt.textwidth = 90
 vim.opt.colorcolumn = "90"
+vim.opt.wrap = false
 
 -- Limit completion results
 vim.opt.pumheight = 10
