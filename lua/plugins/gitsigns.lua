@@ -43,7 +43,6 @@ return {
         map('n', "<leader>ghs", gitsigns.stage_hunk, { desc = "[G]it [s]tage hunk" })
         map('n', "<leader>ghr", gitsigns.reset_hunk, { desc = "[G]it [r]eset hunk" })
         map('n', "<leader>ghS", gitsigns.stage_buffer, { desc = "[G]it [S]tage buffer" })
-        map('n', "<leader>ghu", gitsigns.undo_stage_hunk, { desc = "[G]it [u]ndo stage hunk" })
         map('n', "<leader>ghR", gitsigns.reset_buffer, { desc = "[G]it [R]eset buffer" })
         map('n', "<leader>ghp", gitsigns.preview_hunk, { desc = "[G]it [p]review hunk" })
         map('n', "<leader>ghb", gitsigns.blame_line, { desc = "[G]it [b]lame line" })
@@ -54,7 +53,6 @@ return {
 
         -- Toggles
         map('n', "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle Git show [b]lame line" })
-        map('n', "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle Git show [D]eleted" })
       end,
     },
   },
