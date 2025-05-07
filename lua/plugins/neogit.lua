@@ -11,7 +11,7 @@ return {
           enhanced_diff_hl = true,
         },
       },        -- optional - Diff integration
-      "ibhagwan/fzf-lua",              -- optional
+      "folke/snacks.nvim",
     },
     opts = {
       kind = "floating",
