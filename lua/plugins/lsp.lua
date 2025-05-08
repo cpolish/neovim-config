@@ -33,7 +33,7 @@ return {
   { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
@@ -175,7 +175,7 @@ return {
       },
 
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Useful status updates for LSP.
@@ -203,11 +203,6 @@ return {
       })
       local mason_tool_installer = require("mason-tool-installer")
       mason_tool_installer.setup({ ensure_installed = ensure_installed })
-
-      require("mason-lspconfig").setup({
-        ensure_installed = {},
-        automatic_installation = false,
-      })
 
       vim.lsp.enable(LSP_SERVERS)
     end,
