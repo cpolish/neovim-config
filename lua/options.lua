@@ -85,3 +85,15 @@ vim.g.c_syntax_for_h = 1
 
 -- Global variable related stuff
 vim.g.diagnostic_signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
+
+vim.opt.linespace = 6
+
+if vim.g.neovide then
+  vim.g.neovide_padding_top = 10
+  vim.g.neovide_padding_bottom = 4
+  vim.g.neovide_padding_right = 4
+  vim.g.neovide_padding_left = 6
+
+  vim.g.neovide_cursor_animation_length = 0.05
+  vim.g.neovide_cursor_trail_size = 0.25
+end
