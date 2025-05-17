@@ -31,3 +31,13 @@ vim.keymap.set('n', "<leader>td", "<cmd>tabclose<CR>", { desc = "Delete tab" })
 -- Set macro record key to '\' to avoid accidentally pressing it
 vim.keymap.set('n', '\\', 'q')
 vim.keymap.set('n', 'q', "<Nop>")
+
+if vim.g.neovide then
+  local paste_modes = { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' }
+  local paste_fn = function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end
+  local paste_keymap_opts = { noremap = true, silent = true }
+
+  local paste_keymap = (vim.uv.os_uname().sysname == "Darwin") and "<D-v>" or "<C-S-v>"
+
+  vim.keymap.set(paste_modes, paste_keymap, paste_fn, paste_keymap_opts)
+end
