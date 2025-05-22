@@ -1,7 +1,6 @@
 local LSP_SERVERS = {
   "clangd",
   "pyright",
-  "rust_analyzer",
 
   "ts_ls",
   "cssls",
