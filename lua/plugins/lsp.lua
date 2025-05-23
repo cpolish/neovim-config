@@ -105,6 +105,9 @@ return {
               -- or a suggestion from your LSP for this to activate.
               map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { 'n', 'x' })
 
+              -- Show diagnostics in floating window when pressing "<leader>ce"
+              map("<leader>ce", vim.diagnostic.open_float, "[C]ode: Open Diagnostic")
+
               -- The following two autocommands are used to highlight references of the
               -- word under your cursor when your cursor rests there for a little while.
               --    See `:help CursorHold` for information about when this is executed
@@ -163,14 +166,20 @@ return {
             end,
           })
 
+          -- Set settings for diagnostics
+          local diagnostic_config = { float = { border = "rounded" } }
+
           -- Change diagnostic symbols in the sign column (gutter)
           if vim.g.have_nerd_font then
             local diagnostic_signs = {}
             for type, icon in pairs(vim.g.diagnostic_signs) do
               diagnostic_signs[vim.diagnostic.severity[type]] = icon
             end
-            vim.diagnostic.config { signs = { text = diagnostic_signs } }
+
+            diagnostic_config.signs = { text = diagnostic_signs }
           end
+
+          vim.diagnostic.config(diagnostic_config)
         end,
       },
 
