@@ -32,6 +32,9 @@ vim.keymap.set('n', "<leader>td", "<cmd>tabclose<CR>", { desc = "Delete tab" })
 vim.keymap.set('n', '\\', 'q')
 vim.keymap.set('n', 'q', "<Nop>")
 
+-- Custom keybinds for clipboard copying
+vim.keymap.set({'n', 'v'}, "<leader>y", "\"+y", { desc = "Yank to clipboard" })
+
 if vim.g.neovide then
   local paste_modes = { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' }
   local paste_fn = function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end
