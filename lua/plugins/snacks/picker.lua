@@ -3,7 +3,16 @@ return {
     "snacks.nvim",
     ---@type snacks.Config
     opts = {
-      picker = {},
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<C-Left>"] = { "history_back", mode = { 'i', 'n' } },
+              ["<C-Right>"] = { "history_forward", mode = { 'i', 'n' } },
+            },
+          },
+        },
+      },
     },
     keys = {
       -- Top Pickers & Explorer
