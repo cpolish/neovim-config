@@ -15,6 +15,7 @@ return {
         'html',
         'java',
         'javascript', 'jsdoc',
+        'json', 'json5', 'jsonc',
         'lua', 'luadoc',
         'markdown',
         'markdown_inline',
