@@ -13,6 +13,8 @@ local LSP_SERVERS = {
   "jsonls",
 
   "lua_ls",
+
+  "roslyn",
 }
 
 return {
@@ -191,7 +193,13 @@ return {
       { "j-hui/fidget.nvim", opts = {} },
     },
     config = function()
-      require("mason").setup()
+      ---@diagnostic disable-next-line: missing-fields
+      require("mason").setup({
+        registries = {
+          "github:mason-org/mason-registry",
+          "github:Crashdummyy/mason-registry",
+        }
+      })
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
