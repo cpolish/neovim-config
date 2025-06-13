@@ -15,6 +15,7 @@ local LSP_SERVERS = {
   "lua_ls",
 
   "roslyn",
+  "rzls",
 }
 
 return {
@@ -64,6 +65,9 @@ return {
         -- Debuggers
         "codelldb",
         "netcoredbg",
+
+        -- Extra LSPs we wish to install, but will configure somewhere else
+
       })
       local mason_tool_installer = require("mason-tool-installer")
       mason_tool_installer.setup({ ensure_installed = ensure_installed })
