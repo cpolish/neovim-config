@@ -54,6 +54,9 @@ return {
         -- Toggles
         map('n', "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle Git show [b]lame line" })
       end,
+      preview_config = {
+        border = "rounded",
+      },
     },
   },
 }
