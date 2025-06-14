@@ -1,34 +1,33 @@
 return {
   { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
-    build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    build = "<Cmd>TSUpdate",
+    main = "nvim-treesitter.configs", -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {
-        'bash',
-        'c',
-        'c_sharp',
-        'css',
-        'diff',
-        'doxygen',
-        'html',
-        'java',
-        'javascript', 'jsdoc',
-        'json', 'json5', 'jsonc',
-        'lua', 'luadoc',
-        'markdown',
-        'markdown_inline',
-        'mermaid',
-        'python',
-        'query',
-        'regex',
-        'rust',
-        'scss',
-        'typescript', 'tsx',
-        'vim',
-        'vimdoc',
+        "astro",
+        "bash",
+        "c",
+        "c_sharp",
+        "css",
+        "diff",
+        "doxygen",
+        "html",
+        "java",
+        "javascript", "jsdoc",
+        "json", "json5", "jsonc",
+        "lua", "luadoc",
+        "markdown", "markdown_inline",
+        "mermaid",
+        "python",
+        "query",
+        "regex",
+        "rust",
+        "scss",
+        "typescript", "tsx",
+        "vim", "vimdoc",
       },
       -- Autoinstall languages that are not installed
       highlight = {
@@ -36,9 +35,9 @@ return {
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = { "ruby" },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { "ruby" } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

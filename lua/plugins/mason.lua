@@ -6,6 +6,7 @@ local LSP_SERVERS = {
   "cssls",
   "eslint",
   "html",
+  "astro",
 
   "jdtls",
   "gradle_ls",
