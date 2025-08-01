@@ -29,9 +29,24 @@ return {
     end,
   },
   {
-    "nicholasmata/nvim-dap-cs",
+    "GustavEikaas/easy-dotnet.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
     event = "VeryLazy",
-    dependencies = { "mfussenegger/nvim-dap" },
-    opts = {},
+    ---@module "easy-dotnet.options"
+    ---@type Options
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      ---@diagnostic disable-next-line: missing-fields
+      test_runner = {
+        viewmode = "float",
+        ---@diagnostic disable-next-line: missing-fields
+        mappings = {
+          expand = { lhs = "zo", desc = "expand" },
+          expand_node = { lhs = "zO", desc = "expand node" },
+          expand_all = { lhs = "zR", desc = "expand all" },
+          collapse_all = { lhs = "zC", desc = "collapse all" },
+        },
+      },
+    },
   },
 }

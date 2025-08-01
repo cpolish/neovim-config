@@ -65,7 +65,6 @@ return {
 
         -- Debuggers
         "codelldb",
-        "netcoredbg",
 
         -- Extra LSPs we wish to install, but will configure somewhere else
 
