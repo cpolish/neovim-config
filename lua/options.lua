@@ -62,7 +62,7 @@ vim.opt.textwidth = 90
 vim.opt.colorcolumn = "90"
 vim.opt.wrap = false
 
--- Limit completion results
+-- Completion-related settings
 vim.opt.pumheight = 10
 
 -- Always keep statusline at bottom

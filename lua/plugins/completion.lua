@@ -48,15 +48,28 @@ return {
               { "kind_icon", "label", gap = 1 },
               { "kind", "label_description", gap = 1 },
             },
-          }
+          },
         },
       },
+
+      -- enabled = function()
+      --   return vim.bo.filetype ~= "copilot-chat"
+      -- end,
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { "lsp", "easy-dotnet", "path", "snippets", "buffer" },
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        },
         providers = {
+          -- copilot = {
+          --   name = "copilot",
+          --   module = "blink-copilot",
+          --   score_offset = -50,
+          --   async = true,
+          -- },
           ["easy-dotnet"] = {
             name = "easy-dotnet",
             enabled = true,
@@ -72,8 +85,8 @@ return {
       -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
       --
       -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = { implementation = "prefer_rust_with_warning" },
     },
-    opts_extend = { "sources.default" }
-  }
+    opts_extend = { "sources.default" },
+  },
 }
