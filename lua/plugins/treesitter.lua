@@ -14,7 +14,7 @@ return {
         "css",
         "diff",
         "doxygen",
-        "html",
+        "html", "htmldjango",
         "java",
         "javascript", "jsdoc",
         "json", "json5", "jsonc",
@@ -28,6 +28,7 @@ return {
         "scss",
         "typescript", "tsx",
         "vim", "vimdoc",
+        "yaml",
       },
       -- Autoinstall languages that are not installed
       highlight = {

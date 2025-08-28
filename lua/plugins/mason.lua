@@ -17,6 +17,9 @@ local LSP_SERVERS = {
 
   "roslyn",
   "rzls",
+
+  -- Extra LSPs where the mapping between lspconfig and Mason isn't well defined
+  "djlsp",
 }
 
 return {
@@ -57,7 +60,7 @@ return {
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.list_slice(LSP_SERVERS)
+      local ensure_installed = vim.list_slice(LSP_SERVERS, 0, #LSP_SERVERS - 2)
       vim.list_extend(ensure_installed, {
         -- Formatters
         "stylua", -- Used to format Lua code
@@ -67,7 +70,7 @@ return {
         "codelldb",
 
         -- Extra LSPs we wish to install, but will configure somewhere else
-
+        "django-template-lsp",
       })
       local mason_tool_installer = require("mason-tool-installer")
       mason_tool_installer.setup({ ensure_installed = ensure_installed })
