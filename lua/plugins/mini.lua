@@ -68,7 +68,7 @@ end
 -- Collection of various small independent plugins/modules
 return {
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     version = '*',
     event = "VeryLazy",
     opts = {
@@ -76,13 +76,13 @@ return {
     },
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     version = '*',
     event = "VeryLazy",
     opts = {},
   },
   {
-    "echasnovski/mini.statusline",
+    "nvim-mini/mini.statusline",
     version = '*',
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()

@@ -17,7 +17,7 @@ return {
         opts = {},
       },
       {
-        "echasnovski/mini.diff",
+        "nvim-mini/mini.diff",
         event = "VeryLazy",
         config = function()
           local diff = require("mini.diff")
