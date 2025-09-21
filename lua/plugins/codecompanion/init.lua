@@ -27,25 +27,33 @@ return {
           })
         end,
       },
-      -- {
-      --   "OXY2DEV/markview.nvim",
-      --   lazy = false,
-      --   opts = {
-      --     preview = {
-      --       filetypes = { "markdown", "codecompanion" },
-      --       ignore_buftypes = {},
-      --     },
-      --   }
-      -- },
       "j-hui/fidget.nvim",
-    },
-    opts = {
-
+      {
+        "ravitemer/mcphub.nvim",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+        },
+        build = "npm install -g mcp-hub@latest",  -- Installs `mcp-hub` node binary globally
+        event = "VeryLazy",
+        opts = {
+          extensions = {
+            mcphub = {
+              callback = "mcphub.extensions.codecompanion",
+            },
+          },
+        },
+      },
     },
     config = function()
       require("plugins.codecompanion.spinner"):init()
 
-      require("codecompanion").setup()
+      require("codecompanion").setup({
+        extensions = {
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+          },
+        },
+      })
 
       vim.keymap.set("ca", "Chat", "CodeCompanionChat")
     end,
