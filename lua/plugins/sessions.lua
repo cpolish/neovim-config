@@ -12,6 +12,7 @@ return {
       session_lens = {
         load_at_startup = false,
       },
+      pre_save_cmds = { [[ set keywordprg="" ]] },
       no_restore_cmds = {
         function()
           local buf_name = vim.api.nvim_buf_get_name(0)
