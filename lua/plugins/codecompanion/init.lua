@@ -53,6 +53,11 @@ return {
             callback = "mcphub.extensions.codecompanion",
           },
         },
+        strategies = {
+          chat = { adapter = "copilot" },
+          cmd = { adapter = "copilot" },
+          inline = { adapter = "copilot" },
+        },
       })
 
       vim.keymap.set("ca", "Chat", "CodeCompanionChat")
