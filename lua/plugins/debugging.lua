@@ -1,9 +1,6 @@
-local file_utils = require("utils.file")
-
 return {
   {
     "mfussenegger/nvim-dap",
-    dependencies = { "GustavEikaas/easy-dotnet.nvim" },
     event = "VeryLazy",
     config = function()
       local dap = require("dap")
@@ -29,7 +26,6 @@ return {
       dap.configurations.c = dap.configurations.cpp
 
       -- Setup config for .NET languages (more complex)
-      local dotnet = require("easy-dotnet")
 
       ---@alias DotnetDll {
       ---  project_name: string,
@@ -49,7 +45,7 @@ return {
           return dotnet_debug_dll
         end
 
-        dotnet_debug_dll = dotnet.get_debug_dll()
+        dotnet_debug_dll = require("easy-dotnet").get_debug_dll()
         return dotnet_debug_dll
       end
 
@@ -88,9 +84,11 @@ return {
             request = "launch",
             env = function()
               local dll = get_dotnet_debug_dll()
-              local vars = dotnet.get_environment_variables(dll.project_name,
-                                                            dll.absolute_project_path,
-                                                            false)
+              local vars = require("easy-dotnet").get_environment_variables(
+                dll.project_name,
+                dll.absolute_project_path,
+                false
+              )
               return vars or nil
             end,
             program = function()
@@ -99,7 +97,7 @@ return {
 
               dotnet_rebuild_project(co, dll.project_path)
 
-              if not file_utils.file_exists(dll.target_path) then
+              if not require("utils.file").file_exists(dll.target_path) then
                 error(("Project has not been built (path: %s)"):format(dll.target_path))
               end
 

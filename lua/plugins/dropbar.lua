@@ -5,20 +5,22 @@ return {
     opts = {
       bar = {
         sources = function(buf)
-          local sources = require("dropbar.sources")
-          local utils = require("dropbar.utils")
-
           local buf_opts = vim.bo[buf]
 
           if buf_opts.ft == "markdown" then
-            return { sources.markdown }
+            return { require("dropbar.sources").markdown }
           end
 
           if buf_opts.buftype == "terminal" then
-            return { sources.terminal }
+            return { require("dropbar.sources").terminal }
           end
 
-          return { utils.source.fallback({ sources.lsp, sources.treesitter }) }
+          return {
+            require("dropbar.utils").source.fallback({
+              require("dropbar.sources").lsp,
+              require("dropbar.sources").treesitter,
+            }),
+          }
         end,
       },
       icons = {

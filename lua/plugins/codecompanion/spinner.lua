@@ -1,8 +1,6 @@
 -- Source code originally from:
 -- https://github.com/olimorris/codecompanion.nvim/discussions/813#discussioncomment-12031954
 
-local progress = require("fidget.progress")
-
 local M = {}
 
 function M:init()
@@ -48,7 +46,7 @@ function M:create_progress_handle(request)
     assistance_strategy_text = request.data.strategy
   end
 
-  return progress.handle.create({
+  return require("fidget.progress").handle.create({
     title = " Requesting assistance (" .. assistance_strategy_text .. ")",
     message = "In progress...",
     lsp_client = {

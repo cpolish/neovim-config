@@ -1,5 +1,3 @@
-local string_utils = require("utils.string")
-
 ---@alias MiniStatuslineGroup {
 ---  hl: string,
 ---  strings: string[],
@@ -119,7 +117,7 @@ return {
 
           for _, diagnostic_name in ipairs(DIAGNOSTIC_NAMES) do
             local diagnostic_hl_name = ("StatuslineDiagnostic%s"):format(
-              string_utils.capitalise(diagnostic_name)
+              require("utils.string").capitalise(diagnostic_name)
             )
 
             vim.api.nvim_set_hl(0, diagnostic_hl_name, {
