@@ -5,6 +5,7 @@ return {
     opts = {
       explorer = {
         replace_netrw = false,
+        trash = true,
       },
       -- picker = {
       --   sources = {
