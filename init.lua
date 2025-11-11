@@ -20,5 +20,5 @@ require("filetypes")
 -- Autocommands
 require("autocmds")
 
--- Bootstrap/install `lazy.nvim` package manager, and onfigure and install plugins
+-- Bootstrap/install `lazy.nvim` package manager, and configure and install plugins
 require("lazy-setup")
