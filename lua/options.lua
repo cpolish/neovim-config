@@ -71,8 +71,6 @@ vim.opt.laststatus = 3
 -- Fold-related options
 vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldtext = ""
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
