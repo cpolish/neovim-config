@@ -26,6 +26,7 @@ return {
         "regex",
         "rust",
         "scss",
+        "sql",
         "typescript", "tsx",
         "vim", "vimdoc",
         "yaml",
