@@ -51,6 +51,7 @@ return {
         extensions = {
           mcphub = {
             callback = "mcphub.extensions.codecompanion",
+            opts = { make_vars = false },
           },
         },
         strategies = {
