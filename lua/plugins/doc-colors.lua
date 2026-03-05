@@ -8,6 +8,7 @@ local CSS_COLOR_OPTS = {
   rgb_fn = true,
   hsl_fn = true,
   oklch_fn = true,
+  suppress_deprecation = true,
 }
 
 return {
@@ -35,6 +36,7 @@ return {
         tailwind = "lsp",
         mode = "virtualtext",
         virtualtext_inline = "before",
+        suppress_deprecation = true,
       },
     },
   },
